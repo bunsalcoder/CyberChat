@@ -1,10 +1,10 @@
 
 const SERVER_PORT = 5000;
-const SERVER_IP = '192.168.88.5';https://cyberchatapp.herokuapp.com/
+const SERVER_IP = '192.168.88.5';
 
 const URL = 'https://cyberchatapp.herokuapp.com/login';
-const POST_MESSAGE_URL =  'http://' + SERVER_IP + ':' + SERVER_PORT + '/message';
-const GET_MESSAGES_URL = 'http://' + SERVER_IP + ':' + SERVER_PORT + '/messages';
+// const POST_MESSAGE_URL =  'http://' + SERVER_IP + ':' + SERVER_PORT + '/message';
+// const GET_MESSAGES_URL = 'http://' + SERVER_IP + ':' + SERVER_PORT + '/messages';
 
 
 //___________________________Login-Form-Style_____________________________//
