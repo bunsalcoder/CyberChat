@@ -14,7 +14,7 @@ let usernames = [
     { name: "bunsal", password: "00000" },
     { name: "lyhuoy", password: "11111" },
     { name: "ronan", password: "22222" },
-    { name: "sokhom", password: "33333" },
+    { name: "sokhom", password: "33333" }
 ];
 
 // login request path
@@ -28,7 +28,7 @@ app.get("/login", (req, res) => {
         if (user.name === userName && user.password === passWord){
             isValid =  true;
         };
-    }
+    };
     res.send(isValid);
 });
 
@@ -36,16 +36,18 @@ app.get("/login", (req, res) => {
 
 app.get('/', (req, res) => res.send("Hello Project"));
 
-let users = [
-    // {username: "bunsal", text: "Hello bro!"},
+let messages = [
+    // {username: "bunsal", text: "aaa"},
+    // {username: "ronan", text: "bbb"},
+    // {username: "lyhouy", text: "cc"},
 ];
 
-app.get('/users', (req , res) =>{
-    res.send(users);
+app.get('/messages', (req , res) =>{
+    res.send(messages);
 });
 
-app.post('/users', (req, res) =>{
-    let user = {text: req.body.text};
-    users.push(user);
-    res.send(users);
+app.post('/message', (req, res) =>{
+    let message = req.body;
+    messages.push(message);
+    res.send(messages);
 });
