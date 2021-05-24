@@ -9,7 +9,6 @@ const GET_MESSAGES_URL = 'https://cyberchatapp.herokuapp.com/messages';
 //________________Display-Message___________________//
 
 function displayMessages(messages){
-    const message = document.querySelector('#msg');
     const yourMessage = document.querySelector('.your-message');
     const otherMessage = document.querySelector('.other-message');
     const messageTitle = document.querySelector('.message-title');
@@ -59,8 +58,8 @@ function displayMessages(messages){
             otherMessage.appendChild(newMessageTitle);
         };    
     };
-    // message.value = '';
 };
+
 
 //_____________________send message______________________//
 
@@ -92,5 +91,8 @@ const user = document.querySelector('.chat-header p');
 const messageInput = document.querySelector('#msg');
 const sendButton = document.querySelector('#btnSend');
 sendButton.addEventListener('click', sendMessage);
+sendButton.addEventListener('click', () => {
+    messageInput.value = '';
+});
 
 
