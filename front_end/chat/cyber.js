@@ -74,3 +74,6 @@ const user = document.querySelector('.chat-header p');
 const messageInput = document.querySelector('#msg');
 const sendButton = document.querySelector('#btnSend');
 sendButton.addEventListener('click', sendMessage);
+
+
+setInterval(loadData, 500);
