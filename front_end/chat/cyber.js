@@ -1,5 +1,3 @@
-const { urlencoded } = require("express");
-
 const SERVER_PORT = 5000;
 const SERVER_IP = '192.168.88.5';
 
