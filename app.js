@@ -49,13 +49,7 @@ app.get('/messages', (req , res) =>{
 });
 
 app.post('/message', (req, res) =>{
-    let username = req.body.username;
-    let text = req.body.text;
-    let newData = {
-        username: username,
-        text: text
-    };
-
-    messages.push(newData);
+    let message = req.body;
+    messages.push(message);
     res.send(messages);
 });

@@ -14,6 +14,8 @@ function displayMessages(messages){
     let userLocalStorage = localStorage.getItem('username');
     user.textContent = userLocalStorage;
 
+
+
     if (messageTitle !== null){
         messageTitle.remove();
     };
@@ -73,15 +75,12 @@ function sendMessage(event){
 //_____________________load data________________________//
 
 function loadData(){
-    let message = chat_content.firstElementChild;
-    message.remove();
     axios.get(GET_MESSAGES_URL).then(resp => displayMessages(resp.data));
-
 };
 
 
 loadData();
-setInterval(loadData, 4000);
+setInterval(loadData, 3000);
 
 
 //______________________________MAIN_____________________________//
