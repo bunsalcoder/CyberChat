@@ -29,7 +29,7 @@ function displayMessages(messages) {
         let userTitle = document.createElement("div");
         userTitle.className = "message-title";
         userTitle.id = "title2";
-        userTitle.textContent = userLocalStorage;
+        userTitle.textContent = user.username;
         const messageDiv = document.createElement("div");
         messageDiv.className = "message-text";
 

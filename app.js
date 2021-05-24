@@ -59,3 +59,9 @@ app.post('/message', (req, res) =>{
     messages.push(newData);
     res.send(messages);
 });
+
+app.post('/message', (req, res) =>{
+    let message = req.body;
+    messages.push(message);
+    res.send(messages);
+});
