@@ -11,6 +11,7 @@ const GET_MESSAGES_URL = 'https://cyberchatapp.herokuapp.com/messages';
 function displayMessages(messages){
     const message = document.querySelector('#msg');
     const yourMessage = document.querySelector('.your-message');
+    const otherMessage = document.querySelector('.other-message');
     const messageTitle = document.querySelector('.message-title');
     let userLocalStorage = localStorage.getItem('username');
     user.textContent = userLocalStorage;
@@ -26,21 +27,39 @@ function displayMessages(messages){
 
     for (let user of messages){
 
-        let userTitle = document.createElement('div');
-        userTitle.className = 'message-title';
-        userTitle.id = 'title2';
-        userTitle.textContent = 'Me' + ', ' + currentTime.toLocaleTimeString();
-        
-        const messageDiv = document.createElement('div');
-        messageDiv.className = 'message-text';
+        if (userLocalStorage !== 'bunsal'){
+            let userTitle = document.createElement('div');
+            userTitle.className = 'message-title';
+            userTitle.id = 'title2';
+            userTitle.textContent = 'Me' + ', ' + currentTime.toLocaleTimeString();
+            
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message-text';
 
-        const newP = document.createElement('p');
-        newP.textContent = user.text;
+            const newP = document.createElement('p');
+            newP.textContent = user.text;
 
-        messageDiv.appendChild(newP);
-        newMessageTitle.appendChild(userTitle);
-        newMessageTitle.appendChild(messageDiv);
-        yourMessage.appendChild(newMessageTitle);
+            messageDiv.appendChild(newP);
+            newMessageTitle.appendChild(userTitle);
+            newMessageTitle.appendChild(messageDiv);
+            yourMessage.appendChild(newMessageTitle);
+        }else{
+            let userTitle = document.createElement('div');
+            userTitle.className = 'message-title';
+            userTitle.id = 'title2';
+            userTitle.textContent = 'Me' + ', ' + currentTime.toLocaleTimeString();
+            
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message-text';
+
+            const newP = document.createElement('p');
+            newP.textContent = user.text;
+
+            messageDiv.appendChild(newP);
+            newMessageTitle.appendChild(userTitle);
+            newMessageTitle.appendChild(messageDiv);
+            otherMessage.appendChild(newMessageTitle);
+        };    
     };
     message.value = '';
 };
