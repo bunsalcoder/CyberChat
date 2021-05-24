@@ -25,8 +25,8 @@ function displayMessages(messages){
     newMessageTitle.className = 'message-title';
 
     for (let user of messages){
-
-        if (userLocalStorage !== 'bunsal'){
+        console.log(user);
+        if (userLocalStorage === ){
             let userTitle = document.createElement('div');
             userTitle.className = 'message-title';
             userTitle.id = 'title2';
