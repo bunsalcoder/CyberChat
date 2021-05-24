@@ -37,7 +37,7 @@ function hideLogin(){
         if (isValid){
             text = 'Login Successfully !!!';
             color = 'green';
-            localStorage.setItem(Username, userName.value);
+            localStorage.setItem('username', userName.value);
             console.log(userName.value);
             window.location.pathname = '/chat/cyber.html';
         };
