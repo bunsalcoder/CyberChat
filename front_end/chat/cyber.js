@@ -4,8 +4,6 @@ const SERVER_IP = '192.168.88.5';
 const URL = 'https://cyberchatapp.herokuapp.com/login';
 const POST_MESSAGE_URL =  'https://cyberchatapp.herokuapp.com/message';
 const GET_MESSAGES_URL = 'https://cyberchatapp.herokuapp.com/messages';
-const GET_USER_DATA = 'https://cyberchatapp.herokuapp.com/getUser';
-
 
 //________________Display-Message___________________//
 
@@ -26,8 +24,7 @@ function displayMessages(messages){
     newMessageTitle.className = 'message-title';
 
     for (let user of messages){
-        console.log(user);
-        if (userLocalStorage === ){
+        if (userLocalStorage === username){
             let userTitle = document.createElement('div');
             userTitle.className = 'message-title';
             userTitle.id = 'title2';
@@ -62,15 +59,6 @@ function displayMessages(messages){
 };
 
 
-function getUser(){
-    let userData = {
-        username: userLocalStorage, 
-        text: messageInput.value
-    };
-    axios.post(GET_USER_DATA, userData);
-};
-
-
 //_____________________send message______________________//
 
 function sendMessage(event){
@@ -81,7 +69,6 @@ function sendMessage(event){
     let message = {username: username, text: text};
 
     axios.post(POST_MESSAGE_URL, message).then(resp => displayMessages(resp.data));
-    getUser();
 };
 
 //_____________________load data________________________//

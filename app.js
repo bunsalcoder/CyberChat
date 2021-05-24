@@ -49,24 +49,13 @@ app.get('/messages', (req , res) =>{
 });
 
 app.post('/message', (req, res) =>{
-    let message = req.body;
-    messages.push(message);
+    let username = req.body.username;
+    let text = req.body.text;
+    let newData = {
+        username: username,
+        text: text
+    };
+
+    messages.push(newData);
     res.send(messages);
 });
-
-//______________Read-Write___________________//
-let message_data = JSON.parse(fs.readFileSync('message.json'));
-
-app.post("/getUser", (req, res) => {
-    let username = req.body.name;
-    let txt = req.body.text;
-    let new_data = {
-        name: username,
-        text: txt
-    };
-    message_data.push(new_data);
-    fs.writeFileSync("message.json", JSON.stringify('message_data'));
-    res.send(message_data);
-});
-
-
