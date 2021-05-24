@@ -1,5 +1,7 @@
+const { json } = require("express");
 const express = require("express");
 const app = express();
+const fs = require('fs');
 
 const DEFAULT_PORT = 5000;
 const PORT = process.env.PORT || DEFAULT_PORT;
@@ -50,6 +52,21 @@ app.post('/message', (req, res) =>{
     let message = req.body;
     messages.push(message);
     res.send(messages);
+});
+
+//______________Read-Write___________________//
+let message_data = JSON.parse(fs.readFileSync(message.json));
+
+app.post("/getUser", (req, res) => {
+    let username = req.body.name;
+    let txt = req.body.text;
+    let new_data = {
+        name: username,
+        text: txt
+    }
+    message.push(new_data);
+    fs.writeFileSync("message.json", JSON.stringify(message_data));
+    res.send(message_data);
 });
 
 
