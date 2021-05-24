@@ -65,6 +65,7 @@ function loadData(){
 
 
 loadData();
+setInterval(displayMessages, 500);
 
 
 //______________________________MAIN_____________________________//
@@ -76,4 +77,3 @@ const sendButton = document.querySelector('#btnSend');
 sendButton.addEventListener('click', sendMessage);
 
 
-// setInterval(loadData, 500);
