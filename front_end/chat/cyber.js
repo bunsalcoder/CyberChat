@@ -1,3 +1,5 @@
+const { urlencoded } = require("express");
+
 const SERVER_PORT = 5000;
 const SERVER_IP = '192.168.88.5';
 
@@ -13,7 +15,7 @@ function displayMessages(messages){
     const yourMessage = document.querySelector('.your-message');
     const messageTitle = document.querySelector('.message-title');
     let userLocalStorage = localStorage.getItem('username');
-    console.log(userLocalStorage);
+    user.textContent = userLocalStorage;
 
     let currentTime = new Date();
 
