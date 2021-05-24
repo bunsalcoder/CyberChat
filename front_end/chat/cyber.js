@@ -23,6 +23,8 @@ function displayMessages(messages){
 
     for (let user of messages){
 
+        user.textContent = localStorage.getItem(username);
+
         let userTitle = document.createElement('div');
         userTitle.className = 'message-title';
         userTitle.id = 'title2';
@@ -67,6 +69,7 @@ loadData();
 //______________________________MAIN_____________________________//
 
 const messageTitle = document.querySelector('#title2');
+const user = document.querySelector('.chat-header p');
 const messageInput = document.querySelector('#msg');
 const sendButton = document.querySelector('#btnSend');
 sendButton.addEventListener('click', sendMessage);
