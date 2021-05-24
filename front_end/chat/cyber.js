@@ -76,4 +76,4 @@ const sendButton = document.querySelector('#btnSend');
 sendButton.addEventListener('click', sendMessage);
 
 
-setInterval(loadData, 500);
+// setInterval(loadData, 500);
