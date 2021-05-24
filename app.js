@@ -55,7 +55,7 @@ app.post('/message', (req, res) =>{
 });
 
 //______________Read-Write___________________//
-let message_data = JSON.parse(fs.readFileSync(message.json));
+let message_data = JSON.parse(fs.readFileSync('message.json'));
 
 app.post("/getUser", (req, res) => {
     let username = req.body.name;
@@ -63,9 +63,9 @@ app.post("/getUser", (req, res) => {
     let new_data = {
         name: username,
         text: txt
-    }
-    message.push(new_data);
-    fs.writeFileSync("message.json", JSON.stringify(message_data));
+    };
+    message_data.push(new_data);
+    fs.writeFileSync("message.json", JSON.stringify('message_data'));
     res.send(message_data);
 });
 
