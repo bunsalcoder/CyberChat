@@ -1,7 +1,6 @@
-const { json } = require("express");
 const express = require("express");
 const app = express();
-const fs = require('fs');
+
 
 const DEFAULT_PORT = 5000;
 const PORT = process.env.PORT || DEFAULT_PORT;
@@ -39,9 +38,8 @@ app.get("/login", (req, res) => {
 app.get('/', (req, res) => res.send("Hello Project"));
 
 let messages = [
-    {username: "bunsal", text: "aaa"},
-    {username: "ronan", text: "bbb"},
-    {username: "lyhouy", text: "cc"},
+    {username: "bunsal", text: "Hello"},
+    {username: "lyhouy", text: "Yes, hi bro"},
 ];
 
 app.get('/messages', (req , res) =>{
@@ -60,8 +58,8 @@ app.post('/message', (req, res) =>{
     res.send(messages);
 });
 
-app.post('/message', (req, res) =>{
-    let message = req.body;
-    messages.push(message);
-    res.send(messages);
-});
+// app.post('/message', (req, res) =>{
+//     let message = req.body;
+//     messages.push(message);
+//     res.send(messages);
+// });
