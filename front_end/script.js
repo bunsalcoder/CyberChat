@@ -3,9 +3,6 @@ const SERVER_PORT = 5000;
 const SERVER_IP = '192.168.88.5';
 
 const URL = 'https://cyberchatapp.herokuapp.com/login';
-// const POST_MESSAGE_URL =  'http://' + SERVER_IP + ':' + SERVER_PORT + '/message';
-// const GET_MESSAGES_URL = 'http://' + SERVER_IP + ':' + SERVER_PORT + '/messages';
-
 
 //___________________________Login-Form-Style_____________________________//
 
@@ -37,10 +34,11 @@ function hideLogin(){
         let text = "Invalid User";
         let color = "red";
 
-        console.log(isValid);
         if (isValid){
             text = 'Login Successfully !!!';
             color = 'green';
+            localStorage.setItem(Username, userName.value);
+            console.log(userName.value);
             window.location.pathname = '/chat/cyber.html';
         };
         message.textContent = text;
