@@ -39,9 +39,9 @@ app.get("/login", (req, res) => {
 app.get('/', (req, res) => res.send("Hello Project"));
 
 let messages = [
-    {username: "bunsal", text: "aaa"},
-    {username: "ronan", text: "bbb"},
-    {username: "lyhouy", text: "cc"},
+    // {username: "bunsal", text: "aaa"},
+    // {username: "ronan", text: "bbb"},
+    // {username: "lyhouy", text: "cc"},
 ];
 
 app.get('/messages', (req , res) =>{
