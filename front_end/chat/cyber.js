@@ -18,9 +18,9 @@ function displayMessages(messages){
 
     let currentTime = new Date();
 
-    // if (messageTitle !== null){
-    //     messageTitle.remove();
-    // };
+    if (messageTitle !== null){
+        messageTitle.remove();
+    };
 
     const newMessageTitle = document.createElement("div");
     newMessageTitle.className = 'message-title';
@@ -59,7 +59,7 @@ function displayMessages(messages){
             otherMessage.appendChild(newMessageTitle);
         };    
     };
-    message.value = '';
+    // message.value = '';
 };
 
 //_____________________send message______________________//
