@@ -12,6 +12,9 @@ function displayMessages(messages){
     const message = document.querySelector('#msg');
     const yourMessage = document.querySelector('.your-message');
     const messageTitle = document.querySelector('.message-title');
+    let userLocalStorage = localStorage.getItem('username');
+    console.log(userLocalStorage);
+
     let currentTime = new Date();
 
     if (messageTitle !== null){
@@ -22,8 +25,6 @@ function displayMessages(messages){
     newMessageTitle.className = 'message-title';
 
     for (let user of messages){
-
-        user.textContent = localStorage.getItem('username');
 
         let userTitle = document.createElement('div');
         userTitle.className = 'message-title';
@@ -70,7 +71,6 @@ loadData();
 
 const messageTitle = document.querySelector('#title2');
 const user = document.querySelector('.chat-header p');
-console.log(user);
 const messageInput = document.querySelector('#msg');
 const sendButton = document.querySelector('#btnSend');
 sendButton.addEventListener('click', sendMessage);
