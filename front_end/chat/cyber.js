@@ -31,7 +31,7 @@ function displayMessages(messages){
             let userTitle = document.createElement('div');
             userTitle.className = 'message-title';
             userTitle.id = 'title2';
-            userTitle.textContent = 'Me' + ', ' + currentTime.toLocaleTimeString();
+            userTitle.textContent = userLocalStorage + ', ' + currentTime.toLocaleTimeString();
             
             const messageDiv = document.createElement('div');
             messageDiv.className = 'message-text';
