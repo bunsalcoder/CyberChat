@@ -16,16 +16,15 @@ function displayMessages(messages) {
     let messageTitle = document.querySelector('.message-title')
     if (messageTitle !== null){
         messageTitle.remove();
-    }
-
-    const newMessageTitle = document.createElement('div');
-    newMessageTitle.className = 'message-title';
+    };
     
 
     for (let message of messages) {
 
+        const newMessageTitle = document.createElement('div');
+        newMessageTitle.className = 'message-title';
+        
         let listOfMessage = otherMessage;
-        console.log(listOfMessage);
         let title = document.createElement('div');
         title.className = 'message-title';
         title.id = 'title1';
@@ -33,7 +32,7 @@ function displayMessages(messages) {
         let messageText = document.createElement('div');
         messageText.className = 'message-text';
 
-        if (userLocalStorage !== message.username){
+        if (userLocalStorage === message.username){
             listOfMessage = yourMessage;
             title.id = 'title2';
         }
@@ -49,7 +48,6 @@ function displayMessages(messages) {
         newMessageTitle.appendChild(title);
         newMessageTitle.appendChild(messageText);
         listOfMessage.appendChild(newMessageTitle);
-        console.log(newMessageTitle);
     };
 };
 
