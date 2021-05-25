@@ -42,7 +42,7 @@ function displayMessages(messages) {
         let userSpan = document.createElement('span');
 
         if (userLocalStorage === message.username) {
-            userMessageTitle.id = 'title1';
+            userMessageTitle.id = 'title2';
             newPara.textContent = message.text;
             userSpan.textContent = message.username;
             messageDiv.appendChild(newPara);
