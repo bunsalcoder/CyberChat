@@ -45,7 +45,7 @@ function displayMessages(messages) {
             userMessageTitle.id = 'title2';
             newPara.textContent = message.text;
             userSpan.textContent = message.username;
-            messageDiv.appendChild(newPara);
+            myMessage.appendChild(newPara);
             userMessageTitle.appendChild(userSpan);
             messageTitle.appendChild(userMessageTitle);
             yourMessage.appendChild(messageTitle);
