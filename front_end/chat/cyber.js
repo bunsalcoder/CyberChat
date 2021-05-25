@@ -35,7 +35,7 @@ function displayMessages(messages) {
         let userMessageTitle = document.createElement('div');
         userMessageTitle.className = 'message-title';
 
-        let messageDiv = document.createElement("div");
+        let myMessage = document.createElement("div");
         messageDiv.className = "message-text";
 
         let newPara = document.createElement('p');
@@ -49,16 +49,16 @@ function displayMessages(messages) {
             userMessageTitle.appendChild(userSpan);
             messageTitle.appendChild(userMessageTitle);
             yourMessage.appendChild(messageTitle);
-            rowMessages.appendChild(yourMessage);
+            messageDiv.appendChild(yourMessage);
         }else{
             userMessageTitle.id = 'title1';
             newPara.textContent = message.text;
             userSpan.textContent = message.username;
-            messageDiv.appendChild(newPara);
+            myMessage.appendChild(newPara);
             userMessageTitle.appendChild(userSpan);
             messageTitle.appendChild(userMessageTitle);
             otherMessage.appendChild(messageTitle);
-            rowMessages.appendChild(otherMessage);
+            messageDiv.appendChild(otherMessage);
         };
     };
 };
