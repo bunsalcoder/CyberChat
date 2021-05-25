@@ -38,28 +38,28 @@ app.get("/login", (req, res) => {
 app.get('/', (req, res) => res.send("Hello Project"));
 
 let messages = [
-    {username: "bunsal", text: "Hello"},
-    {username: "lyhouy", text: "Yes, hi bro"},
+    {username: "bunsal", text: "Hello bro!"},
+    {username: "lyhouy", text: "Yes, hi bro!"},
 ];
 
 app.get('/messages', (req , res) =>{
     res.send(messages);
 });
 
-app.post('/message', (req, res) =>{
-    let username = req.body.username;
-    let text = req.body.text;
-    let newData = {
-        username: username,
-        text: text
-    };
-
-    messages.push(newData);
-    res.send(messages);
-});
-
 // app.post('/message', (req, res) =>{
-//     let message = req.body;
-//     messages.push(message);
+//     let username = req.body.username;
+//     let text = req.body.text;
+//     let newData = {
+//         username: username,
+//         text: text
+//     };
+
+//     messages.push(newData);
 //     res.send(messages);
 // });
+
+app.post('/message', (req, res) =>{
+    let message = req.body;
+    messages.push(message);
+    res.send(messages);
+});

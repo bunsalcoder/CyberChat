@@ -30,10 +30,11 @@ function displayMessages(messages) {
         userTitle.className = "message-title";
         userTitle.id = "title2";
         userTitle.textContent = user.username;
-        const messageDiv = document.createElement("div");
+
+        let messageDiv = document.createElement("div");
         messageDiv.className = "message-text";
 
-        const newP = document.createElement("p");
+        let newP = document.createElement("p");
         newP.textContent = user.text;
 
         messageDiv.appendChild(newP);
