@@ -105,6 +105,6 @@ const user = document.querySelector(".chat-header p");
 const messageInput = document.querySelector("#msg");
 const sendButton = document.querySelector("#btnSend");
 sendButton.addEventListener("click", sendMessage);
-sendButton.addEventListener("click", () => {
-    messageInput.value = "";
-});
+// sendButton.addEventListener("click", () => {
+//     messageInput.value = "";
+// });
