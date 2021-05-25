@@ -23,14 +23,18 @@ function displayMessages(messages) {
 
     for (let user of messages) {
         let listOfMessage = otherMessage;
-        console.log(listOfMessage);
+        let userTitle = document.createElement("div");
+        
+        userTitle.className = "message-title";
+        userTitle.id = "title1";
+
         if (userLocalStorage === user.username) {
             listOfMessage = yourMessage;
+            userTitle.id = 'title2';
         };
-        let userTitle = document.createElement("div");
-        userTitle.className = "message-title";
-        userTitle.id = "title2";
-        userTitle.textContent = user.username;
+
+        let userSpan = document.createElement('span');
+        userSpan.textContent = user.username;
 
         let messageDiv = document.createElement("div");
         messageDiv.className = "message-text";
@@ -38,6 +42,7 @@ function displayMessages(messages) {
         let newP = document.createElement("p");
         newP.textContent = user.text;
 
+        userTitle.appendChild(userSpan);
         messageDiv.appendChild(newP);
         newMessageTitle.appendChild(userTitle);
         newMessageTitle.appendChild(messageDiv);
@@ -65,7 +70,7 @@ function loadData() {
 }
 
 loadData();
-setInterval(displayMessages, 3000);
+setInterval(loadData, 3000);
 
 //______________________________MAIN_____________________________//
 
