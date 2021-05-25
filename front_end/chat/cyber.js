@@ -65,7 +65,7 @@ function loadData() {
 }
 
 loadData();
-setInterval(loadData, 3000);
+setInterval(displayMessages, 3000);
 
 //______________________________MAIN_____________________________//
 

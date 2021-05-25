@@ -46,20 +46,20 @@ app.get('/messages', (req , res) =>{
     res.send(messages);
 });
 
-// app.post('/message', (req, res) =>{
-//     let username = req.body.username;
-//     let text = req.body.text;
-//     let newData = {
-//         username: username,
-//         text: text
-//     };
-
-//     messages.push(newData);
-//     res.send(messages);
-// });
-
 app.post('/message', (req, res) =>{
-    let message = req.body;
-    messages.push(message);
+    let username = req.body.username;
+    let text = req.body.text;
+    let newData = {
+        username: username,
+        text: text
+    };
+
+    messages.push(newData);
     res.send(messages);
 });
+
+// app.post('/message', (req, res) =>{
+//     let message = req.body;
+//     messages.push(message);
+//     res.send(messages);
+// });
