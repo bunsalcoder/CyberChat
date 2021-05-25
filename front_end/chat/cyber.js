@@ -23,6 +23,7 @@ function displayMessages(messages) {
 
     for (let user of messages) {
         let listOfMessage = otherMessage;
+        console.log(listOfMessage);
         if (userLocalStorage === user.username) {
             listOfMessage = yourMessage;
         };
