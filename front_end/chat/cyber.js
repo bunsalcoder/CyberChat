@@ -22,31 +22,47 @@ function displayMessages(messages) {
     newMessageTitle.className = "message-title";
 
     for (let user of messages) {
-        let listOfMessage = otherMessage;
-        let userTitle = document.createElement("div");
-
-        userTitle.className = "message-title";
-        userTitle.id = "title1";
-
         if (userLocalStorage === user.username) {
-            listOfMessage = yourMessage;
-            userTitle.id = 'title2';    
+            let userTitle = document.createElement("div");
+
+            userTitle.className = "message-title";
+            userTitle.id = 'title2';
+            
+            let userSpan = document.createElement('span');
+            userSpan.textContent = user.username;
+
+            let messageDiv = document.createElement("div");
+            messageDiv.className = "message-text";
+
+            let newP = document.createElement("p");
+            newP.textContent = user.text;
+
+            userTitle.appendChild(userSpan);
+            messageDiv.appendChild(newP);
+            newMessageTitle.appendChild(userTitle);
+            newMessageTitle.appendChild(messageDiv);
+            yourMessage.appendChild(newMessageTitle);
+        }else{
+            let userTitle = document.createElement("div");
+
+            userTitle.className = "message-title";
+            userTitle.id = 'title1';
+            
+            let userSpan = document.createElement('span');
+            userSpan.textContent = user.username;
+
+            let messageDiv = document.createElement("div");
+            messageDiv.className = "message-text";
+
+            let newP = document.createElement("p");
+            newP.textContent = user.text;
+
+            userTitle.appendChild(userSpan);
+            messageDiv.appendChild(newP);
+            newMessageTitle.appendChild(userTitle);
+            newMessageTitle.appendChild(messageDiv);
+            otherMessage.appendChild(newMessageTitle);
         };
-
-        let userSpan = document.createElement('span');
-        userSpan.textContent = user.username;
-
-        let messageDiv = document.createElement("div");
-        messageDiv.className = "message-text";
-
-        let newP = document.createElement("p");
-        newP.textContent = user.text;
-
-        userTitle.appendChild(userSpan);
-        messageDiv.appendChild(newP);
-        newMessageTitle.appendChild(userTitle);
-        newMessageTitle.appendChild(messageDiv);
-        listOfMessage.appendChild(newMessageTitle);
     };
 };
 
