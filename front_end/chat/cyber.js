@@ -26,11 +26,9 @@ function displayMessages(messages) {
 
         let otherMessage = document.createElement('div');
         otherMessage.className = 'message-row other-message';
-        console.log(otherMessage);
-
+    
         let yourMessage = document.createElement('div');
         yourMessage.className = 'message-row your-message';
-        console.log(yourMessage);
 
         let messageTitle = document.createElement('div');
         messageTitle.className = 'message-title';
@@ -50,6 +48,7 @@ function displayMessages(messages) {
         let newSpan = document.createElement('span');
 
         if (userLocalStorage === message.username){
+            console.log(message.username);
             newSpan.textContent = message.username;
             newPara.textContent = message.text;
 
