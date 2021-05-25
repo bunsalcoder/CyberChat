@@ -8,45 +8,72 @@ const GET_MESSAGES_URL = "https://cyberchatapp.herokuapp.com/messages";
 //________________Display-Message___________________//
 
 function displayMessages(messages) {
-    let yourMessage = document.querySelector('.other-message');
-    let otherMessage = document.querySelector('.your-message');
     let userLocalStorage = localStorage.getItem("username");
     user.textContent = userLocalStorage;
 
-    let messageTitle = document.querySelector('.message-title')
-    if (messageTitle !== null){
-        messageTitle.remove();
-    };
+    // let messageRows = document.querySelectorAll('.message-row')
     
-    const newMessageTitle = document.createElement('div');
-    newMessageTitle.className = 'message-title';
+    // for (let messageRow of messageRows){
+    //     if (messageRow === null){
+    //         messageRow.remove();
+    //     };
+    // };
+    
+    const newMessage = document.createElement('div');
+    newMessage.className = 'message';
 
     for (let message of messages) {
 
-        let listOfMessage = otherMessage;
-        let title = document.createElement('div');
-        title.className = 'message-title';
-        title.id = 'title1';
+        let otherMessage = document.createElement('div');
+        otherMessage.className = 'message-row other-message';
+        console.log(otherMessage);
 
-        let messageText = document.createElement('div');
+        let yourMessage = document.createElement('div');
+        yourMessage.className = 'message-row your-message';
+        console.log(yourMessage);
+
+        let messageTitle = document.createElement('div');
+        messageTitle.className = 'message-title';
+
+        let title1 = document.createElement('div');
+        title1.className = 'message-title';
+        title1.id = 'title1';
+
+        let title2 = document.createElement('div');
+        title2.className = 'message-title';
+        title2.id = 'title2';
+
+        let messageText = document.createElement('message-text');
         messageText.className = 'message-text';
 
-        if (userLocalStorage !== message.username){
-            listOfMessage = yourMessage;
-            title.id = 'title2';
-        };
-
         let newPara = document.createElement('p');
-        newPara.textContent = message.text;
-
         let newSpan = document.createElement('span');
-        newSpan.textContent = message.username; 
 
-        title.appendChild(newSpan);
-        messageText.appendChild(newPara);
-        newMessageTitle.appendChild(title);
-        newMessageTitle.appendChild(messageText);
-        listOfMessage.appendChild(newMessageTitle);
+        if (userLocalStorage === message.username){
+            newSpan.textContent = message.username;
+            newPara.textContent = message.text;
+
+            title2.appendChild(newSpan);
+            messageText.appendChild(newPara);
+
+            messageTitle.appendChild(title2);
+            messageTitle.appendChild(messageText);
+
+            yourMessage.appendChild(messageTitle);
+            newMessage.appendChild(yourMessage);
+        }else{
+            newSpan.textContent = message.username;
+            newPara.textContent = message.text;
+
+            title1.appendChild(newSpan);
+            messageText.appendChild(newPara);
+
+            messageTitle.appendChild(title1);
+            messageTitle.appendChild(messageText);
+
+            otherMessage.appendChild(messageTitle);
+            newMessage.appendChild(otherMessage);
+        };
     };
 };
 
