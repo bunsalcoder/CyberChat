@@ -65,8 +65,8 @@ function displayMessages(messages) {
 
 //_____________________send message______________________//
 
-function sendMessage() {
-
+function sendMessage(event) {
+    event.preventDefault();
     let userLocalStorage = localStorage.getItem("username");
     const text = document.querySelector("#msg").value;
     const username = userLocalStorage; // for now, just for test
