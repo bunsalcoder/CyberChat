@@ -33,7 +33,7 @@ function displayMessages(messages) {
         let messageText = document.createElement('div');
         messageText.className = 'message-text';
 
-        if (userLocalStorage === message.username){
+        if (userLocalStorage !== message.username){
             listOfMessage = yourMessage;
             title.id = 'title2';
         }
