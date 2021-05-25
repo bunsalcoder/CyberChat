@@ -8,45 +8,58 @@ const GET_MESSAGES_URL = "https://cyberchatapp.herokuapp.com/messages";
 //________________Display-Message___________________//
 
 function displayMessages(messages) {
-    const yourMessage = document.querySelector(".your-message");
-    const otherMessage = document.querySelector(".other-message");
-    const messageTitle = document.querySelector(".message-title");
     let userLocalStorage = localStorage.getItem("username");
     user.textContent = userLocalStorage;
 
-    if (messageTitle !== null) {
-        messageTitle.remove();
+    let rowMessages = document.querySelectorAll('.message-row')
+
+    for (let rowMessage of rowMessages){
+        if (rowMessage !== null) {
+            rowMessage.remove();
+        };
     };
 
-    const newMessageTitle = document.createElement("div");
-    newMessageTitle.className = "message-title";
+    const messageDiv = document.createElement("div");
+    messageDiv.className = "message";
 
-    for (let user of messages) {
-        let listOfMessage = otherMessage;
-        let userTitle = document.createElement("div");
+    for (let message of messages) {
+        let otherMessage = document.createElement('div');
+        otherMessage.className = 'message-row other-message';
 
-        userTitle.className = "message-title";
-        userTitle.id = "title1";
+        let yourMessage = document.createElement('div');
+        yourMessage.className = 'message-row your-message';
 
-        if (userLocalStorage === user.username) {
-            listOfMessage = yourMessage;
-            userTitle.id = 'title2';
-        };
+        let messageTitle = document.createElement('div');
+        messageTitle.className = 'message-title';
 
-        let userSpan = document.createElement('span');
-        userSpan.textContent = user.username;
+        let userMessageTitle = document.createElement('div');
+        userMessageTitle.className = 'message-title';
 
         let messageDiv = document.createElement("div");
         messageDiv.className = "message-text";
 
-        let newP = document.createElement("p");
-        newP.textContent = user.text;
+        let newPara = document.createElement('p');
+        let userSpan = document.createElement('span');
 
-        userTitle.appendChild(userSpan);
-        messageDiv.appendChild(newP);
-        newMessageTitle.appendChild(userTitle);
-        newMessageTitle.appendChild(messageDiv);
-        listOfMessage.appendChild(newMessageTitle);
+        if (userLocalStorage === message.username) {
+            userMessageTitle.id = 'title1';
+            newPara.textContent = message.text;
+            userSpan.textContent = message.username;
+            messageDiv.appendChild(newPara);
+            userMessageTitle.appendChild(userSpan);
+            messageTitle.appendChild(userMessageTitle);
+            yourMessage.appendChild(messageTitle);
+            rowMessages.appendChild(yourMessage);
+        }else{
+            userMessageTitle.id = 'title1';
+            newPara.textContent = message.text;
+            userSpan.textContent = message.username;
+            messageDiv.appendChild(newPara);
+            userMessageTitle.appendChild(userSpan);
+            messageTitle.appendChild(userMessageTitle);
+            otherMessage.appendChild(messageTitle);
+            rowMessages.appendChild(otherMessage);
+        };
     };
 };
 
@@ -66,7 +79,7 @@ function sendMessage() {
 
 function loadData() {
     axios.get(GET_MESSAGES_URL).then((resp) => displayMessages(resp.data));
-}
+};
 
 loadData();
 setInterval(loadData, 3000);
