@@ -24,7 +24,7 @@ function displayMessages(messages) {
     for (let user of messages) {
         let listOfMessage = otherMessage;
         let userTitle = document.createElement("div");
-        
+
         userTitle.className = "message-title";
         userTitle.id = "title1";
 
@@ -70,7 +70,7 @@ function loadData() {
 }
 
 loadData();
-setInterval(loadData, 3000);
+setInterval(sendMessage, 3000);
 
 //______________________________MAIN_____________________________//
 
