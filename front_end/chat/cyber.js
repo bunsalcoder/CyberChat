@@ -26,6 +26,7 @@ function displayMessages(messages) {
 
         let listOfMessage = otherMessage;
         let title = document.createElement('div');
+        title.className = 'message-title';
         title.id = 'title1';
 
         let messageText = document.createElement('div');
@@ -41,8 +42,9 @@ function displayMessages(messages) {
 
         let newSpan = document.createElement('span');
         newSpan.textContent = message.username; 
-        messageText.appendChild(newPara);
+
         title.appendChild(newSpan);
+        messageText.appendChild(newPara);
         newMessageTitle.appendChild(title);
         newMessageTitle.appendChild(messageText);
         listOfMessage.appendChild(newMessageTitle);
