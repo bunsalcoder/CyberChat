@@ -93,7 +93,7 @@ function loadData() {
     axios.get(GET_MESSAGES_URL).then((resp) => displayMessages(resp.data));
 };
 
-loadData();
+// loadData();
 // setInterval(loadData, 3000);
 
 //______________________________MAIN_____________________________//
