@@ -18,11 +18,11 @@ function displayMessages(messages) {
         messageTitle.remove();
     };
 
-    const newMessageTitle = document.createElement("div");
-    newMessageTitle.className = "message-title";
-
     for (let user of messages) {
         if (userLocalStorage === user.username) {
+            const newMessageTitle = document.createElement("div");
+            newMessageTitle.className = "message-title";
+
             let userTitle = document.createElement("div");
 
             userTitle.className = "message-title";
@@ -43,6 +43,9 @@ function displayMessages(messages) {
             newMessageTitle.appendChild(messageDiv);
             yourMessage.appendChild(newMessageTitle);
         }else{
+            const newMessageTitle = document.createElement("div");
+            newMessageTitle.className = "message-title";
+
             let userTitle = document.createElement("div");
 
             userTitle.className = "message-title";
