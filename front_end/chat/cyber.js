@@ -30,7 +30,7 @@ function displayMessages(messages) {
 
         if (userLocalStorage === user.username) {
             listOfMessage = yourMessage;
-            userTitle.id = 'title2';
+            userTitle.id = 'title2';    
         };
 
         let userSpan = document.createElement('span');

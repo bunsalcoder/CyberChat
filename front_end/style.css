@@ -94,16 +94,6 @@
     margin-bottom: 10px;
 }
 
-.your-message{
-    justify-content: end;
-    justify-items: end;
-}
-
-.other-message{
-    justify-content: start;
-    justify-items: start;
-}
-
 .message-text{
     padding:  9px 14px;
     margin-bottom: 5px;
