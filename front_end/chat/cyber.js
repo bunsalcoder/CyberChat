@@ -18,13 +18,12 @@ function displayMessages(messages) {
         messageTitle.remove();
     };
 
+    const newMessageTitle = document.createElement("div");
+    newMessageTitle.className = "message-title";
 
     for (let user of messages) {
         let listOfMessage = otherMessage;
         let userTitle = document.createElement("div");
-
-        const newMessageTitle = document.createElement("div");
-        newMessageTitle.className = "message-title";
 
         userTitle.className = "message-title";
         userTitle.id = "title1";
