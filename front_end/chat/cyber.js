@@ -13,12 +13,10 @@ function displayMessages(messages) {
     let userLocalStorage = localStorage.getItem("username");
     user.textContent = userLocalStorage;
 
-    let messageTitles = document.querySelectorAll('.message-title')
-    for (messageTitle of messageTitles){
-        if (messageTitle !== null){
-            messageInput.remove;
-        };
-    };
+    let messageTitle = document.querySelector('.message-title')
+    if (messageTitle !== null){
+        messageTitle.remove();
+    }
 
     const newMessageTitle = document.createElement('div');
     newMessageTitle.className = 'message-title';
@@ -45,9 +43,9 @@ function displayMessages(messages) {
         newSpan.textContent = message.username; 
         messageText.appendChild(newPara);
         title.appendChild(newSpan);
-        newMessageTitle.appendChild(messageText);
         newMessageTitle.appendChild(title);
-        // listOfMessage.appendChild(newMessageTitle);
+        newMessageTitle.appendChild(messageText);
+        listOfMessage.appendChild(newMessageTitle);
     };
 };
 
