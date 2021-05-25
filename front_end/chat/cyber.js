@@ -25,6 +25,7 @@ function displayMessages(messages) {
     for (let message of messages) {
 
         let listOfMessage = otherMessage;
+        console.log(listOfMessage);
         let title = document.createElement('div');
         title.className = 'message-title';
         title.id = 'title1';
