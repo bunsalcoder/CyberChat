@@ -8,58 +8,45 @@ const GET_MESSAGES_URL = "https://cyberchatapp.herokuapp.com/messages";
 //________________Display-Message___________________//
 
 function displayMessages(messages) {
+    let yourMessage = document.querySelector('.message-row other-message');
+    let otherMessage = document.querySelector('.message-row your-message');
     let userLocalStorage = localStorage.getItem("username");
     user.textContent = userLocalStorage;
 
-    let rowMessages = document.querySelectorAll('.message-row')
-
-    for (let rowMessage of rowMessages){
-        if (rowMessage !== null) {
-            rowMessage.remove();
+    let messageTitles = document.querySelectorAll('.message-title')
+    for (messageTitle of messageTitles){
+        if (messageTitle !== null){
+            messageInput.remove;
         };
     };
 
-    const messageDiv = document.createElement("div");
-    messageDiv.className = "message";
+    const newMessageTitle = document.createElement('div');
+    newMessageTitle.className = 'message-title';
 
     for (let message of messages) {
-        let otherMessage = document.createElement('div');
-        otherMessage.className = 'message-row other-message';
 
-        let yourMessage = document.createElement('div');
-        yourMessage.className = 'message-row your-message';
+        let listOfMessage = otherMessage;
+        let title = document.createElement('div');
+        title.id = 'title1';
 
-        let messageTitle = document.createElement('div');
-        messageTitle.className = 'message-title';
+        let messageText = document.createElement('div');
+        messageText.className = 'message-text';
 
-        let userMessageTitle = document.createElement('div');
-        userMessageTitle.className = 'message-title';
-
-        let myMessage = document.createElement("div");
-        messageDiv.className = "message-text";
-
+        if (userLocalStorage === message.username){
+            listOfMessage = yourMessage;
+            title.id = 'title2';
+        }
+        
         let newPara = document.createElement('p');
-        let userSpan = document.createElement('span');
+        newPara.textContent = message.text;
 
-        if (userLocalStorage === message.username) {
-            userMessageTitle.id = 'title2';
-            newPara.textContent = message.text;
-            userSpan.textContent = message.username;
-            myMessage.appendChild(newPara);
-            userMessageTitle.appendChild(userSpan);
-            messageTitle.appendChild(userMessageTitle);
-            yourMessage.appendChild(messageTitle);
-            messageDiv.appendChild(yourMessage);
-        }else{
-            userMessageTitle.id = 'title1';
-            newPara.textContent = message.text;
-            userSpan.textContent = message.username;
-            myMessage.appendChild(newPara);
-            userMessageTitle.appendChild(userSpan);
-            messageTitle.appendChild(userMessageTitle);
-            otherMessage.appendChild(messageTitle);
-            messageDiv.appendChild(otherMessage);
-        };
+        let newSpan = document.createElement('span');
+        newSpan.textContent = message.username;
+        messageText.appendChild(newPara);
+        title.appendChild(newSpan);
+        newMessageTitle.appendChild(messageText);
+        newMessageTitle.appendChild(title);
+        listOfMessage.appendChild(newMessageTitle);
     };
 };
 
