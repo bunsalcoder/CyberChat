@@ -22,6 +22,7 @@ function displayMessages(messages) {
 
     const newMessageTitle = document.createElement('div');
     newMessageTitle.className = 'message-title';
+    console.log(newMessageTitle);
 
     for (let message of messages) {
 
@@ -36,17 +37,17 @@ function displayMessages(messages) {
             listOfMessage = yourMessage;
             title.id = 'title2';
         }
-        
+
         let newPara = document.createElement('p');
         newPara.textContent = message.text;
 
         let newSpan = document.createElement('span');
-        newSpan.textContent = message.username;
+        newSpan.textContent = message.username; 
         messageText.appendChild(newPara);
         title.appendChild(newSpan);
         newMessageTitle.appendChild(messageText);
         newMessageTitle.appendChild(title);
-        listOfMessage.appendChild(newMessageTitle);
+        // listOfMessage.appendChild(newMessageTitle);
     };
 };
 
