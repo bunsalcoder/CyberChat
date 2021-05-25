@@ -20,7 +20,7 @@ function displayMessages(messages) {
 
     const newMessageTitle = document.createElement('div');
     newMessageTitle.className = 'message-title';
-    console.log(newMessageTitle);
+    
 
     for (let message of messages) {
 
@@ -48,6 +48,7 @@ function displayMessages(messages) {
         newMessageTitle.appendChild(title);
         newMessageTitle.appendChild(messageText);
         listOfMessage.appendChild(newMessageTitle);
+        console.log(newMessageTitle);
     };
 };
 
