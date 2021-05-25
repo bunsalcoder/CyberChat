@@ -20,7 +20,7 @@ function displayMessages(messages) {
     }
     
     const newMessage = document.createElement('div');
-    newMessageTitle.className = 'message';
+    newMessage.className = 'message';
 
     for (let message of messages) {
 
