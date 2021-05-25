@@ -8,8 +8,8 @@ const GET_MESSAGES_URL = "https://cyberchatapp.herokuapp.com/messages";
 //________________Display-Message___________________//
 
 function displayMessages(messages) {
-    let yourMessage = document.querySelector('.message-row other-message');
-    let otherMessage = document.querySelector('.message-row your-message');
+    let yourMessage = document.querySelector('.other-message');
+    let otherMessage = document.querySelector('.your-message');
     let userLocalStorage = localStorage.getItem("username");
     user.textContent = userLocalStorage;
 
