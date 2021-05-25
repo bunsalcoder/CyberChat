@@ -52,8 +52,7 @@ function displayMessages(messages) {
 
 //_____________________send message______________________//
 
-function sendMessage(event) {
-    event.preventDefault();
+function sendMessage() {
 
     let userLocalStorage = localStorage.getItem("username");
     const text = document.querySelector("#msg").value;
@@ -70,7 +69,7 @@ function loadData() {
 }
 
 loadData();
-setInterval(sendMessage, 3000);
+setInterval(loadData, 3000);
 
 //______________________________MAIN_____________________________//
 
