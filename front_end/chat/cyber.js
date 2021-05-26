@@ -1,13 +1,13 @@
 const SERVER_PORT = 5000;
 const SERVER_IP = "192.168.88.23";
 
-// const URL = "https://cyberchatapp.herokuapp.com/login";
-// const POST_MESSAGE_URL = "https://cyberchatapp.herokuapp.com/message";
-// const GET_MESSAGES_URL = "https://cyberchatapp.herokuapp.com/messages";
+const URL = "https://cyberchatapp.herokuapp.com/login";
+const POST_MESSAGE_URL = "https://cyberchatapp.herokuapp.com/message";
+const GET_MESSAGES_URL = "https://cyberchatapp.herokuapp.com/messages";
 
-const URL = "http://192.168.88.23:5000/login";
-const POST_MESSAGE_URL = "http://192.168.88.23:5000/message";
-const GET_MESSAGES_URL = "http://192.168.88.23:5000/messages";
+// const URL = "http://192.168.88.23:5000/login";
+// const POST_MESSAGE_URL = "http://192.168.88.23:5000/message";
+// const GET_MESSAGES_URL = "http://192.168.88.23:5000/messages";
 
 //________________Display-Message___________________//
 
