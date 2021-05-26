@@ -12,57 +12,58 @@ const GET_MESSAGES_URL = "https://cyberchatapp.herokuapp.com/messages";
 //________________Display-Message___________________//
 
 function displayMessages(messages) {
-    let yourMessage = document.querySelector('.your-message');
-    let otherMessage = document.querySelector('.other-message');
     let userLocalStorage = localStorage.getItem("username");
     user.textContent = userLocalStorage;
 
-    let messageTitle = document.querySelector('.message-title')
-    if (messageTitle !== null){
-        messageTitle.remove();
-    };
-
-    const newMessageTitle = document.createElement('div');
-    newMessageTitle.className = 'message-title';
+    let oldmessage = document.querySelector('.message')
+    
+    if (oldmessage !== null){
+        oldmessage.remove();
+    }
+    
+    const newMessage = document.createElement('div');
+    newMessage.className = 'message';
 
     for (let message of messages) {
 
+        let otherMessage = document.createElement('div');
+        otherMessage.className = 'message-row other-message';
+
         let listOfMessage = otherMessage;
+
+        let yourMessage = document.createElement('div');
+        yourMessage.className = 'message-row your-message';
+
+        let messageTitle = document.createElement('div');
+        messageTitle.className = 'message-title';
+
         let title = document.createElement('div');
         title.className = 'message-title';
         title.id = 'title1';
 
-        let messageText = document.createElement('div');
+        let messageText = document.createElement('message-text');
         messageText.className = 'message-text';
 
-        if (userLocalStorage === message.username){
-            listOfMessage = yourMessage;
-            title.id = 'title2';
-        };
-
-        if (message.text === ':)'){
-            message.text = '🙂';
-        }else if (message.text === ':('){
-            message.text = '😟';
-        }else if (message.text === ':o'){
-            message.text = '😲';
-        }else if (message.text === ':D'){
-            message.text = '😄';
-        }else if (message.text === '><'){
-            message.text = '😆';
-        };
-
         let newPara = document.createElement('p');
-        newPara.textContent = message.text;
-
         let newSpan = document.createElement('span');
+
+        if (userLocalStorage === message.username){
+            title.id = 'title2';
+            listOfMessage = yourMessage;
+        };
+
         newSpan.textContent = message.username;
+        newPara.textContent = emoticon(message.text);
 
         title.appendChild(newSpan);
         messageText.appendChild(newPara);
-        newMessageTitle.appendChild(title);
-        newMessageTitle.appendChild(messageText);
-        listOfMessage.appendChild(newMessageTitle);
+
+        messageTitle.appendChild(title);
+        messageTitle.appendChild(messageText);
+
+        listOfMessage.appendChild(messageTitle);
+        newMessage.appendChild(listOfMessage);
+        chatContent.appendChild(newMessage);
     };
 };
 
@@ -79,10 +80,35 @@ function sendMessage(event) {
 };
 
 
+//______________________Emojies__________________________//
+let emojiList = {'<3': '❤️', ':)': '🙂',':>': '👽', ':(': '😟', ':o': '😲', ':D': '😄', '><': '😆'};
+
+function emoticon(emoji){
+    let wordSplit = emoji.split(" ");
+    let newText = '';
+
+    for (let word of wordSplit){
+        let foundEmoji = false;
+        for (let emoji in emojiList){
+            if (word === emoji){
+                newText += emojiList[emoji];
+                foundEmoji = true;
+            };
+        };
+        if (!foundEmoji){
+            newText += word;
+        };
+        newText += ' ';
+    };
+    return newText;
+};
+
+
 //_____________________Bold and Italic____________________//
 
 function boldMessage(){
     console.log(boldBtn);
+
 };
 
 function italicMessage(){
@@ -103,6 +129,7 @@ setInterval(loadData, 3000);
 const messageTitle = document.querySelector("#title2");
 const user = document.querySelector(".chat-header p");
 const messageInput = document.querySelector("#msg");
+const chatContent = document.querySelector('.chat-content');
 const sendButton = document.querySelector("#btnSend");
 sendButton.addEventListener("click", sendMessage);
 sendButton.addEventListener("click", () => {
