@@ -1,15 +1,19 @@
 const SERVER_PORT = 5000;
-const SERVER_IP = "192.168.88.5";
+const SERVER_IP = "192.168.88.23";
 
 const URL = "https://cyberchatapp.herokuapp.com/login";
 const POST_MESSAGE_URL = "https://cyberchatapp.herokuapp.com/message";
 const GET_MESSAGES_URL = "https://cyberchatapp.herokuapp.com/messages";
 
+// const URL = "http://192.168.88.23:5000/login";
+// const POST_MESSAGE_URL = "http://192.168.88.23:5000/message";
+// const GET_MESSAGES_URL = "http://192.168.88.23:5000/messages";
+
 //________________Display-Message___________________//
 
 function displayMessages(messages) {
-    let yourMessage = document.querySelector('.message-row other-message');
-    let otherMessage = document.querySelector('.message-row your-message');
+    let yourMessage = document.querySelector('.your-message');
+    let otherMessage = document.querySelector('.other-message');
     let userLocalStorage = localStorage.getItem("username");
     user.textContent = userLocalStorage;
 
@@ -24,6 +28,7 @@ function displayMessages(messages) {
     for (let message of messages) {
 
         let listOfMessage = otherMessage;
+        console.log(listOfMessage);
         let title = document.createElement('div');
         title.className = 'message-title';
         title.id = 'title1';
@@ -31,7 +36,7 @@ function displayMessages(messages) {
         let messageText = document.createElement('div');
         messageText.className = 'message-text';
 
-        if (userLocalStorage !== message.username){
+        if (userLocalStorage === message.username){
             listOfMessage = yourMessage;
             title.id = 'title2';
         }
