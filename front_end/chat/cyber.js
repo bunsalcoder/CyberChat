@@ -1,13 +1,13 @@
 const SERVER_PORT = 5000;
 const SERVER_IP = "192.168.88.23";
 
-const URL = "https://cyberchatapp.herokuapp.com/login";
-const POST_MESSAGE_URL = "https://cyberchatapp.herokuapp.com/message";
-const GET_MESSAGES_URL = "https://cyberchatapp.herokuapp.com/messages";
+// const URL = "https://cyberchatapp.herokuapp.com/login";
+// const POST_MESSAGE_URL = "https://cyberchatapp.herokuapp.com/message";
+// const GET_MESSAGES_URL = "https://cyberchatapp.herokuapp.com/messages";
 
-// const URL = "http://192.168.88.23:5000/login";
-// const POST_MESSAGE_URL = "http://192.168.88.23:5000/message";
-// const GET_MESSAGES_URL = "http://192.168.88.23:5000/messages";
+const URL = "http://192.168.88.23:5000/login";
+const POST_MESSAGE_URL = "http://192.168.88.23:5000/message";
+const GET_MESSAGES_URL = "http://192.168.88.23:5000/messages";
 
 //________________Display-Message___________________//
 
@@ -41,7 +41,7 @@ function displayMessages(messages) {
         title.className = 'message-title';
         title.id = 'title1';
 
-        let messageText = document.createElement('message-text');
+        let messageText = document.createElement('div');
         messageText.className = 'message-text';
 
         let newPara = document.createElement('p');
@@ -54,6 +54,18 @@ function displayMessages(messages) {
 
         newSpan.textContent = message.username;
         newPara.textContent = emoticon(message.text);
+
+        if (message.bold === true){
+            newPara.style.fontWeight = 'bold';
+        }else{
+            newPara.style.fontWeight = 'normal';
+        };
+
+        if (message.italic === true){
+            newPara.style.fontStyle = 'italic';
+        }else{
+            newPara.style.fontStyle = 'normal';
+        };
 
         title.appendChild(newSpan);
         messageText.appendChild(newPara);
@@ -74,7 +86,7 @@ function sendMessage(event) {
     let userLocalStorage = localStorage.getItem("username");
     const text = document.querySelector("#msg").value;
     const username = userLocalStorage; 
-    let message = { username: username, text: text };
+    let message = { username: username, text: text, bold: bold, italic: italic };
 
     axios.post(POST_MESSAGE_URL, message).then((resp) => displayMessages(resp.data));
 };
@@ -105,14 +117,32 @@ function emoticon(emoji){
 
 
 //_____________________Bold and Italic____________________//
+let bold = false;
+let boldCount = 0;
 
 function boldMessage(){
-    console.log(boldBtn);
-
+    boldCount++;
+    if (boldCount % 2 === 0){
+        messageInput.style.fontWeight = 'normal';
+        bold = false;
+    }else{
+        messageInput.style.fontWeight = 'bold';
+        bold = true;
+    };
 };
 
+let italic = false;
+italicCount = 0;
+
 function italicMessage(){
-    console.log(italicBtn);
+    italicCount++;
+    if (italicCount % 2 === 0){
+        messageInput.style.fontStyle = 'normal';
+        italic = false;
+    }else{
+        messageInput.style.fontStyle = 'italic';
+        italic = true;
+    };
 };
 
 //_____________________load data________________________//

@@ -39,7 +39,7 @@ app.get('/', (req, res) => res.send("Hello Project"));
 
 let messages = [
     {username: "bunsal", text: "Hello bro!"},
-    {username: "lyhouy", text: "Yes, hi bro!", bold: false, italic: false},
+    {username: "lyhouy", text: "Yes, hi bro!"}
 ];
 
 app.get('/messages', (req , res) =>{
