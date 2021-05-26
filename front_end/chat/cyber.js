@@ -20,7 +20,7 @@ function displayMessages(messages) {
     let messageTitle = document.querySelector('.message-title')
     if (messageTitle !== null){
         messageTitle.remove();
-    }
+    };
 
     const newMessageTitle = document.createElement('div');
     newMessageTitle.className = 'message-title';
@@ -28,7 +28,6 @@ function displayMessages(messages) {
     for (let message of messages) {
 
         let listOfMessage = otherMessage;
-        console.log(listOfMessage);
         let title = document.createElement('div');
         title.className = 'message-title';
         title.id = 'title1';
@@ -39,13 +38,25 @@ function displayMessages(messages) {
         if (userLocalStorage === message.username){
             listOfMessage = yourMessage;
             title.id = 'title2';
-        }
+        };
+
+        if (message.text === ':)'){
+            message.text = '🙂';
+        }else if (message.text === ':('){
+            message.text = '😟';
+        }else if (message.text === ':o'){
+            message.text = '😲';
+        }else if (message.text === ':D'){
+            message.text = '😄';
+        }else if (message.text === '><'){
+            message.text = '😆';
+        };
 
         let newPara = document.createElement('p');
         newPara.textContent = message.text;
 
         let newSpan = document.createElement('span');
-        newSpan.textContent = message.username; 
+        newSpan.textContent = message.username;
 
         title.appendChild(newSpan);
         messageText.appendChild(newPara);
@@ -61,11 +72,22 @@ function sendMessage(event) {
     event.preventDefault();
     let userLocalStorage = localStorage.getItem("username");
     const text = document.querySelector("#msg").value;
-    const username = userLocalStorage; // for now, just for test
+    const username = userLocalStorage; 
     let message = { username: username, text: text };
 
     axios.post(POST_MESSAGE_URL, message).then((resp) => displayMessages(resp.data));
-}
+};
+
+
+//_____________________Bold and Italic____________________//
+
+function boldMessage(){
+    console.log(boldBtn);
+};
+
+function italicMessage(){
+    console.log(italicBtn);
+};
 
 //_____________________load data________________________//
 
@@ -86,3 +108,9 @@ sendButton.addEventListener("click", sendMessage);
 sendButton.addEventListener("click", () => {
     messageInput.value = "";
 });
+
+const boldBtn = document.querySelector('.bold');
+boldBtn.addEventListener('click', boldMessage);
+
+const italicBtn = document.querySelector('.italic');
+italicBtn.addEventListener('click', italicMessage);

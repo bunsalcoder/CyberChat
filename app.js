@@ -38,8 +38,8 @@ app.get("/login", (req, res) => {
 app.get('/', (req, res) => res.send("Hello Project"));
 
 let messages = [
-    {username: "bunsal", text: "Hello bro!"},
-    {username: "lyhouy", text: "Yes, hi bro!"},
+    {username: "bunsal", text: "Hello bro!", bold: false, italic: false},
+    // {username: "lyhouy", text: "Yes, hi bro!", bold: false, italic: false},
 ];
 
 app.get('/messages', (req , res) =>{
@@ -49,17 +49,16 @@ app.get('/messages', (req , res) =>{
 app.post('/message', (req, res) =>{
     let username = req.body.username;
     let text = req.body.text;
+    let boldText = req.body.bold;
+    let italicText = req.body.italic;
     let newData = {
         username: username,
-        text: text
+        text: text,
+        bold: boldText,
+        italic: italicText
     };
 
     messages.push(newData);
     res.send(messages);
 });
 
-// app.post('/message', (req, res) =>{
-//     let message = req.body;
-//     messages.push(message);
-//     res.send(messages);
-// });
