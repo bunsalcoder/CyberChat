@@ -3,7 +3,7 @@ const SERVER_PORT = 5000;
 const SERVER_IP = '192.168.88.5';
 
 const URL = 'https://cyberchatapp.herokuapp.com/login';
-// const URL = 'http://192.168.88.23:5000/login';
+// const URL = 'http://192.168.88.34:5000/login';
 
 //___________________________Login-Form-Style_____________________________//
 
@@ -39,7 +39,6 @@ function hideLogin(){
             text = 'Login Successfully !!!';
             color = 'green';
             localStorage.setItem('username', userName.value);
-            console.log(userName.value);
             window.location.pathname = '/chat/cyber.html';
         };
         message.textContent = text;

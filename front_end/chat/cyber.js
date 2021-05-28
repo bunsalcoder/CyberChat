@@ -1,13 +1,13 @@
 const SERVER_PORT = 5000;
-const SERVER_IP = "192.168.88.23";
+const SERVER_IP = "192.168.88.27";
 
 const URL = "https://cyberchatapp.herokuapp.com/login";
 const POST_MESSAGE_URL = "https://cyberchatapp.herokuapp.com/message";
 const GET_MESSAGES_URL = "https://cyberchatapp.herokuapp.com/messages";
 
-// const URL = "http://192.168.88.23:5000/login";
-// const POST_MESSAGE_URL = "http://192.168.88.23:5000/message";
-// const GET_MESSAGES_URL = "http://192.168.88.23:5000/messages";
+// const URL = "http://192.168.88.34:5000/login";
+// const POST_MESSAGE_URL = "http://192.168.88.34:5000/message";
+// const GET_MESSAGES_URL = "http://192.168.88.34:5000/messages";
 
 //________________Display-Message___________________//
 
@@ -67,6 +67,14 @@ function displayMessages(messages) {
             newPara.style.fontStyle = 'normal';
         };
 
+        if (title.id === 'title1'){
+            window.addEventListener("DOMContentLoaded", event => {
+                const audio = document.querySelector("audio");
+                audio.volume = 1;
+                audio.play();
+            });   
+        };
+        
         title.appendChild(newSpan);
         messageText.appendChild(newPara);
 
@@ -76,6 +84,7 @@ function displayMessages(messages) {
         listOfMessage.appendChild(messageTitle);
         newMessage.appendChild(listOfMessage);
         chatContent.appendChild(newMessage);
+        goBottom();
     };
 };
 
@@ -91,9 +100,18 @@ function sendMessage(event) {
     axios.post(POST_MESSAGE_URL, message).then((resp) => displayMessages(resp.data));
 };
 
+//____________________GotoBottom_______________________//
+
+function goBottom(){
+    let mCt = document.querySelector(".chat-content");
+    mCt.scrollTop = mCt.scrollHeight - mCt.clientHeight;
+};
+
 
 //______________________Emojies__________________________//
-let emojiList = {'<3': '❤️', ':)': '🙂',':>': '👽', ':(': '😟', ':o': '😲', ':D': '😄', '><': '😆'};
+let emojiList = {'<3': '❤️', ':)': '🙂',':>': '👽', ':(': '😟', ':o': '😲', ':D': '😄', '><': '😆',
+                '3:)': '😈', ':`': '😢', '-_-': '😑', ':p': '😝', '<(")': '🐁', '8)': '😎', 'o:)': '😇',
+                '>:o': '😡', ':*': '😗'};
 
 function emoticon(emoji){
     let wordSplit = emoji.split(" ");
@@ -145,6 +163,18 @@ function italicMessage(){
     };
 };
 
+
+//_____________________Emoji Function____________________//
+
+document.addEventListener('DOMContentLoaded', () => {
+    newEmoji.on('emoji', emoji => {
+        document.querySelector('#msg').value += emoji;
+    });
+    smiley.addEventListener('click', () => {
+        newEmoji.togglePicker(smiley);
+    });
+});
+
 //_____________________load data________________________//
 
 function loadData() {
@@ -159,6 +189,8 @@ setInterval(loadData, 3000);
 const messageTitle = document.querySelector("#title2");
 const user = document.querySelector(".chat-header p");
 const messageInput = document.querySelector("#msg");
+const smiley = document.querySelector(".smiley");
+const newEmoji = new EmojiButton();
 const chatContent = document.querySelector('.chat-content');
 const sendButton = document.querySelector("#btnSend");
 sendButton.addEventListener("click", sendMessage);

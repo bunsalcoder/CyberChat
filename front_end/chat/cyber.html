@@ -4,15 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cyber Chat</title>
+    <title>Cyber Chat | Start</title>
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <script src="cyber.js" defer></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@joeattardi/emoji-button@3.1.1/dist/index.min.js"></script>
 </head>
 <body>
     <!--------------------Chat--------------------->
-
+    <audio src="../img/chat_request.mp3"></audio>
+    
     <div class="chat-container-parent">
         <img class="bg" src="../img/bg.jpg">
         <div class="chat-container">
@@ -56,9 +58,10 @@
 
                 <!----------------------Form---------------------------->
                 <form class="msg-text">
-                    <div class="bold-italic">
+                    <div class="bold-italic-smiley">
                         <img class="bold" src="../img/bold.png">
                         <img class="italic" src="../img/italic.png">
+                        <img class="smiley" src="../img/smiley-removebg-preview.png">
                     </div>
                     <input type="text" name="msg" id="msg" placeholder="Type message here..." autocomplete="off">
                     <button id="btnSend">
