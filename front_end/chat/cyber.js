@@ -5,9 +5,9 @@ const URL = "https://cyberchatapp.herokuapp.com/login";
 const POST_MESSAGE_URL = "https://cyberchatapp.herokuapp.com/message";
 const GET_MESSAGES_URL = "https://cyberchatapp.herokuapp.com/messages";
 
-// const URL = "http://192.168.88.34:5000/login";
-// const POST_MESSAGE_URL = "http://192.168.88.34:5000/message";
-// const GET_MESSAGES_URL = "http://192.168.88.34:5000/messages";
+// const URL = "http://192.168.88.32:5000/login";
+// const POST_MESSAGE_URL = "http://192.168.88.32:5000/message";
+// const GET_MESSAGES_URL = "http://192.168.88.32:5000/messages";
 
 //________________Display-Message___________________//
 
@@ -46,7 +46,7 @@ function displayMessages(messages) {
 
         let newPara = document.createElement('p');
         let newSpan = document.createElement('span');
-
+        
         if (userLocalStorage === message.username){
             title.id = 'title2';
             listOfMessage = yourMessage;
@@ -67,13 +67,10 @@ function displayMessages(messages) {
             newPara.style.fontStyle = 'normal';
         };
 
-        if (title.id === 'title1'){
-            window.addEventListener("DOMContentLoaded", event => {
-                const audio = document.querySelector("audio");
-                audio.volume = 1;
-                audio.play();
-            });   
-        };
+        // if (title.id === 'title1'){
+        //     let sound = new Audio("../img/chat_request.mp3");
+        //     sound.play();
+        // };
         
         title.appendChild(newSpan);
         messageText.appendChild(newPara);
@@ -129,7 +126,7 @@ function emoticon(emoji){
             newText += word;
         };
         newText += ' ';
-    };
+    }; 
     return newText;
 };
 

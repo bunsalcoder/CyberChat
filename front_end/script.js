@@ -3,7 +3,7 @@ const SERVER_PORT = 5000;
 const SERVER_IP = '192.168.88.5';
 
 const URL = 'https://cyberchatapp.herokuapp.com/login';
-// const URL = 'http://192.168.88.34:5000/login';
+// const URL = 'http://192.168.88.32:5000/login';
 
 //___________________________Login-Form-Style_____________________________//
 
